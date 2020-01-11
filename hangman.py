@@ -39,12 +39,13 @@ while Game == True:                     #While Game is true, the program gets ex
             print("That's the wrong word.")
             quit()             
     
-    if badpoint == (pointsneeded):
+    if badpoint == (pointsneeded):      #if you got as much mistakes like the word has characters, you lose
         print("You lost.")
         sleep (0.5)
-        print ("The word was "+ str(activeWord))
+        print ("The word was "+ str(activeWord)) #the actually searched word gets printed out 
         quit()
-    if goodpoint == (pointsneeded):
+    if goodpoint == (pointsneeded):     #if you get every character of the word (or write the same one again and again) you win
         print ("You Won!")
         sleep (0.5)
-        print ("the word was "+ str(activeWord))
+        print ("the word was "+ str(activeWord)) #you are able to see what word you had to guess
+        quit()

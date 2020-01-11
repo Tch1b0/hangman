@@ -7,6 +7,3 @@ def Wordpick (): #Die Funktion nimmt sich ein Zufealliges Wort aus der Liste
 
 
 Wordpick()
-lel = "hallo"
-genius = lel.count
-print (genius)

@@ -12,6 +12,13 @@ activeWord = (random.choice(Word))      #a random word gets picked
 for char in activeWord:
     pointsneeded = pointsneeded + 1     #the amount of points to win/lose gets defined
 
+def endscreen(text,delay):
+    print ("You "+(text)+"!")
+    sleep (delay)
+    print ("the word was "+ str(activeWord)) #you can see what word you had to guess
+    quit()
+
+
 while Game == True:                     #While Game is true, the program gets executed
     gcharnum = 0                        #'gcharnum' gets reset/set to 0
     charnum = 0                         #'charnum' gets reset/set to 0
@@ -40,12 +47,7 @@ while Game == True:                     #While Game is true, the program gets ex
             quit()             
     
     if badpoint == (pointsneeded):      #if you got as much mistakes like the word has characters, you lose
-        print("You lost.")
-        sleep (0.5)
-        print ("The word was "+ str(activeWord)) #the actually searched word gets printed out 
-        quit()
+        endscreen(lost,0.5)
+
     if goodpoint == (pointsneeded):     #if you get every character of the word (or write the same one again and again) you win
-        print ("You Won!")
-        sleep (0.5)
-        print ("the word was "+ str(activeWord)) #you are able to see what word you had to guess
-        quit()
+        endscreen(won,0.5)

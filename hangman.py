@@ -2,12 +2,16 @@ import random
 Game = True
 
 if Game == True:
-    Word = ["World","Universe"]
+    Word = ["World","Universe","Ball","Nintendo"]
     activeWord = (random.choice(Word))
 
     for char in activeWord:
-        print ("/")
-
+       print ("/")
     guess = input()
-    for char in activeWord:
-        print(char, char.isalpha)
+    if guess in activeWord:
+        print ("Right")
+        quit()
+    else:
+        print("Wrong")
+        quit()
+

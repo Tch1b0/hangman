@@ -3,7 +3,7 @@ Game = True                             #the game starts
 charnum = 0                             #the number of characters in the searched word
 gcharnum = 0                            #the number of characters in the guessed word 
 while Game == True:                     #While Game is true, the program gets executed
-    Word = ["world","universe","ball",] #those are the words which are able to be searched
+    Word = ["world","universe","ball"] #those are the words which are able to be searched
     activeWord = (random.choice(Word))  #a random word gets picked 
 
     for char in activeWord:             #for every char of the searched word...

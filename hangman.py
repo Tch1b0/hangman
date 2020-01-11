@@ -16,7 +16,7 @@ for char in activeWord:
 def endscreen(text,delay):              #the screen you see when you finish the game gets defined
     print ("You "+(text)+"!")
     sleep (delay)
-    print ("the word was "+ str(activeWord)) #you can see what word you had to guess
+    print ("the word was "+ str(activeWord)) #you can see what word you had to guess 
     quit()
 
 

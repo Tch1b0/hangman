@@ -12,7 +12,7 @@ while Game == True:                     #While Game is true, the program gets ex
 
     guess = input()                     #the guess of the player 
     for char in guess:                  #for every char in the guess...
-        gcharnum = gcharnum + 1         #... one 1 gets added
+        gcharnum = gcharnum + 1         #... a 1 gets added
 
     if gcharnum == 1:                   #if just one character got guessed
         if guess.lower() in activeWord: #right guess

@@ -8,7 +8,7 @@ goodpoint = 0                           #the points you need to win get defined
 badpoint = 0                            #the points you need to loose get defined
 repeated_chars = []
 
-Word = ["world","universe","ball"]      #those are the words which are able to be searched
+Word = ["world","universe","ball"]      #those are the words which are able to be searched (You shouldn't use words which contain the same character more than one time)
 activeWord = (random.choice(Word))      #a random word gets picked 
 for char in activeWord:
     pointsneeded = pointsneeded + 1     #the amount of points to win/lose gets defined
@@ -35,7 +35,7 @@ while Game == True:                     #While Game is true, the program gets ex
 
     if gcharnum == 1:                   #if just one character got guessed
 
-        if guess in repeated_chars:     #if the character was already guessed
+        if guess.lower in repeated_chars: #if the character was already guessed
             print ("You already had this one")
             badpoint = badpoint + 1     #1 'badpoint' is getting added
             repeated = True             #the other cases below get deactivated for the round

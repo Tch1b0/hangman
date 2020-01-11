@@ -1,9 +1,16 @@
 import random
-Word = ["World","Universe"]
+Game = True
 
-def Wordpick (): #Die Funktion nimmt sich ein Zufealliges Wort aus der Liste
+if Game == True:
+    Word = ["World","Universe"]
     activeWord = (random.choice(Word))
-    print (activeWord)
 
+    #for char in activeWord:
+    #    print(char, char.isalpha())
 
-Wordpick()
+    for char in activeWord:
+        print ("/")
+
+    guess = input()
+    for cahr in activeWord:
+        print(char, char.isalpha)

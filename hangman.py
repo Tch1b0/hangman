@@ -3,13 +3,14 @@ from time import sleep
 
 Game = True                             #the game starts
 
+pointsneeded = 0                        #the amount of points you need to win/lose
 goodpoint = 0                           #the points you need to win get defined
 badpoint = 0                            #the points you need to loose get defined
 
 Word = ["world","universe","ball"]      #those are the words which are able to be searched
 activeWord = (random.choice(Word))      #a random word gets picked 
 for char in activeWord:
-    pointsneeded = pointsneeded + 1     #how many points you need to win/lose
+    pointsneeded = pointsneeded + 1     #the amount of points to win/lose gets defined
 
 while Game == True:                     #While Game is true, the program gets executed
     gcharnum = 0                        #'gcharnum' gets reset/set to 0

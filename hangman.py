@@ -6,13 +6,14 @@ Game = True                             #the game starts
 pointsneeded = 0                        #the amount of points you need to win/lose
 goodpoint = 0                           #the points you need to win get defined
 badpoint = 0                            #the points you need to loose get defined
+repeated_chars = []
 
 Word = ["world","universe","ball"]      #those are the words which are able to be searched
 activeWord = (random.choice(Word))      #a random word gets picked 
 for char in activeWord:
     pointsneeded = pointsneeded + 1     #the amount of points to win/lose gets defined
 
-def endscreen(text,delay):
+def endscreen(text,delay):              #the screen you see when you finish the game gets defined
     print ("You "+(text)+"!")
     sleep (delay)
     print ("the word was "+ str(activeWord)) #you can see what word you had to guess
@@ -32,12 +33,22 @@ while Game == True:                     #While Game is true, the program gets ex
         gcharnum = gcharnum + 1         #... a 1 gets added
 
     if gcharnum == 1:                   #if just one character got guessed
+
         if guess.lower() in activeWord: #right guess
             print ("Right letter")
             goodpoint = goodpoint + 1
+            string_value = guess.join(repeated_chars)
+
         elif guess.lower() not in activeWord: #wrong guess
             print ("That letter isn't in the Word")
             badpoint = badpoint + 1     #1 badpoint is getting added
+            string_value = guess.join(repeated_chars)
+
+        elif guess in repeated_chars:
+            print ("You already had this one")
+            badpoint = badpoint + 1
+
+
     elif gcharnum >= 1:                 #if the word got guessed 
         if guess.lower() == activeWord: #if the word was guessed right
             print("That's the word!")
@@ -45,9 +56,10 @@ while Game == True:                     #While Game is true, the program gets ex
         elif guess.lower() != activeWord: #if the word was guessed wrong 
             print("That's the wrong word.")
             quit()             
+
     
     if badpoint == (pointsneeded):      #if you got as much mistakes like the word has characters, you lose
-        endscreen(lost,0.5)
+        endscreen("lost",0.5)
 
     if goodpoint == (pointsneeded):     #if you get every character of the word (or write the same one again and again) you win
-        endscreen(won,0.5)
+        endscreen("won",0.5)

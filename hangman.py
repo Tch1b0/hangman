@@ -7,8 +7,15 @@ pointsneeded = 0                        #the amount of points you need to win/lo
 goodpoint = 0                           #the points you need to win get defined
 badpoint = 0                            #the points you need to loose get defined
 repeated_chars = []
+right_chars = []
+wrong_chars = []
+space = ("*****")
 
-Word = ["world","ball"]                 #those are the words which are able to be searched (You shouldn't use words which contain the same character more than one time)
+Word = [                                #those are the words which are able to be searched (You shouldn't use words which contain the same character more than one time)
+"world","bike","cloud","orange","car",
+"house","garden","space","duck","goose",
+"smartphone","smart","mouse","airplane"
+]                                      
 activeWord = (random.choice(Word))      #a random word gets picked 
 for char in activeWord:
     pointsneeded = pointsneeded + 1     #the amount of points to win/lose gets defined
@@ -28,27 +35,45 @@ while Game == True:                     #While Game is true, the program gets ex
     for char in activeWord :            #for every character of the searched word...
        print ("/")                      #... gets a character printed out as an slash
        charnum = charnum + 1            #... a 1 gets added to the 'charnum'
+    print (space)
+    sleep(0.5)
+    print ("right characters",str(right_chars))
+    sleep(0.25)
+    print("_____")
+    sleep(0.25)
+    print("wrong characters",str(wrong_chars))
+    print (space+"\n")
 
     guess = input()                     #the guess of the player 
+    sleep (0.75)
     for char in guess:                  #for every character in the guess...
         gcharnum = gcharnum + 1         #... a 1 gets added
 
     if gcharnum == 1:                   #if just one character got guessed
 
         if guess in repeated_chars: #if the character was already guessed
-            print ("You already had this one")
+            print ("You already had this one\n")
+            print (space)
+            sleep (1)
             badpoint = badpoint + 1     #1 'badpoint' is getting added
             repeated = True             #the other cases below get deactivated for the round
 
         if guess.lower() in activeWord and repeated == False:      #right guess
-            print ("Right letter")
+            print ("Right character\n")
+            print (space)
+            sleep (1)
             goodpoint = goodpoint + 1   #1 'goodpoint' is getting added
             repeated_chars += [guess]   #the guess gets added to the 'repeated_chars' list and can't get guessed again
+            right_chars += [guess]
+            
 
         elif guess.lower() not in activeWord and repeated == False: #wrong guess
-            print ("That letter isn't in the Word")
+            print ("That character isn't in the Word\n")
+            print (space)
+            sleep (1)
             badpoint = badpoint + 1     #1 'badpoint' is getting added
             repeated_chars += [guess]   #the guess gets added to the 'repeated_chars' list and can't get guessed again
+            wrong_chars += [guess]
 
 
 

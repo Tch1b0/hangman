@@ -37,11 +37,13 @@ while Game == True:                     #While Game is true, the program gets ex
        charnum = charnum + 1            #... a 1 gets added to the 'charnum'
     print (space)                       #a space between 
     sleep(0.5)                          
-    print ("right characters",str(right_chars)) #the right guessed characters get here displayed
+    print ("right characters:")  
+    print (*right_chars, sep = ", ")           #the right guessed characters get here displayed
     sleep(0.25)                                 #a short delay in order to look more smooth
     print("_____")                              #this is suposed to look like a brake between those displayed informations
     sleep(0.25)                                 #a short delay in order to look more smooth
-    print("wrong characters",str(wrong_chars))  #the wrong guessed characters get here displayed
+    print("wrong characters:")
+    print (*wrong_chars, sep = ", ")          #the wrong guessed characters get here displayed
     print (space+"\n")
 
     guess = input()                     #the guess of the player 

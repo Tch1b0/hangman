@@ -1,7 +1,11 @@
 import random
 from time import sleep
 
-Game = True                             #the game starts
+
+easy = False
+medium = False
+hard = False
+Game = True
 
 pointsneeded = 0                        #the amount of points you need to win/lose
 goodpoint = 0                           #the points you need to win get defined
@@ -11,11 +15,10 @@ right_chars = []                        #the right characters are getting saved 
 wrong_chars = []                        #the wrong characters are getting saved in this list
 space = ("*****")                       #this is the definition for the space between some text
 
-Word = [                                #those are the words which are able to be searched (You shouldn't use words which contain the same character more than one time)
-"world","bike","cloud","orange","car",
-"house","garden","space","duck","goose",
-"smartphone","smart","mouse","airplane"
+Word = [                           #those are the words which are able to be searched (You shouldn't use words which contain the same character more than one time)
+"toast"
 ]                                      
+
 activeWord = (random.choice(Word))      #a random word gets picked 
 for char in activeWord:                 #for every character existing in the word you 
     pointsneeded = pointsneeded + 1     #the amount of points to win/lose gets defined
@@ -26,8 +29,9 @@ def endscreen(text,delay):              #the screen you see when you finish the 
     print ("the word was "+ str(activeWord)) #you can see what word you had to guess 
     quit()
 
+difficutly = input("On which difficulty do you want to play?\n'e' = easy\n'm' = medium\n'h' = hard\n")
 
-while Game == True:                     #While Game is true, the program gets executed
+while Game:                             #While Game is true, the program gets executed
     gcharnum = 0                        #'gcharnum' gets reset/set to 0
     charnum = 0                         #'charnum' gets reset/set to 0
     repeated = False                    #resetting repeated
@@ -64,7 +68,8 @@ while Game == True:                     #While Game is true, the program gets ex
             print ("Right character\n")
             print (space)
             sleep (1)
-            goodpoint = goodpoint + 1   #1 'goodpoint' is getting added
+            for guess in activeWord:
+                goodpoint += 1          #1 'goodpoint' is getting added
             repeated_chars += [guess]   #the guess gets added to the 'repeated_chars' list and can't get guessed again
             right_chars += [guess]      #the character is getting added to the right character list
             

@@ -68,8 +68,7 @@ while Game:                             #While Game is true, the program gets ex
             print ("Right character\n")
             print (space)
             sleep (1)
-            for guess in activeWord:
-                goodpoint += 1          #1 'goodpoint' is getting added
+            goodpoint += activeWord.count(guess.lower())         #1 'goodpoint' is getting added
             repeated_chars += [guess]   #the guess gets added to the 'repeated_chars' list and can't get guessed again
             right_chars += [guess]      #the character is getting added to the right character list
             
